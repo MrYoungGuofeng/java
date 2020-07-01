@@ -22,8 +22,8 @@ public class BookServiceImpl implements BookService {
         return bookMapper.deleteBookById(id);
     }
 
-    public int updateBooK(Books books) {
-        return bookMapper.updateBooK(books);
+    public int updateBook(Books books) {
+        return bookMapper.updateBook(books);
     }
 
     public Books queryBookById(int id) {
