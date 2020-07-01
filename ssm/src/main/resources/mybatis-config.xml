@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 本来应该要配置数据源的，但是可以交给Spring去做-->
+    <!-- 所以这里只需要做两件事：1.取别名-->
+    <typeAliases>
+        <package name="com.mmxmmx.pojo"/>
+    </typeAliases>
+    <!-- 所以这里只需要做两件事：2.映射一些Mappers配置文件-->
+    <mappers>
+        <mapper class="com.mmxmmx.dao.BookMapper"/>
+    </mappers>
+
+</configuration>
