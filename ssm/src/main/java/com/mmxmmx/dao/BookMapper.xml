@@ -24,6 +24,9 @@
     <select id="queryAllBook" resultType="Books">
         select * from ssm.books;
     </select>
+    <select id="queryBookByName" resultType="Books">
+        select * from ssm.books where bookName=#{bookName}
+    </select>
 </mapper>
 
 

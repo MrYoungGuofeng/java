@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -61,5 +62,21 @@ public class BookController {
         System.out.println("deletebook===》"+id);
         bookService.deleteBookById(id);
         return "redirect:/book/allBook";
+    }
+    //查询书籍
+    //query是form表单提交的地址。queryBookName是查询的内容，还需要一个Model
+    @RequestMapping("/queryBook")
+    public String queryBook(String queryBookName,Model model){
+        //调用service层查询书籍
+        Books books = bookService.queryBookByName(queryBookName);
+        //将查询出来的book添加到list中
+        List<Books> list = new ArrayList<Books>();
+        list.add(books);
+        if(books==null){
+            list=bookService.queryAllBook();
+            model.addAttribute("error","未查到对应书籍");
+        }
+        model.addAttribute("list",list);
+        return "allBook";
     }
 }
